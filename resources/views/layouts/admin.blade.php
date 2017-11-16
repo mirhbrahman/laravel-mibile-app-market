@@ -57,6 +57,10 @@
                     <a href="{{route('category.index')}}"><span class="fa fa-desktop"></span> <span class="xn-text">Category</span></a>
                 </li>
 
+                <li>
+                    <a href="{{route('sub-category.index')}}"><span class="fa fa-desktop"></span> <span class="xn-text">Sub Category</span></a>
+                </li>
+
 
 
                 <li class="xn-title">Components</li>
