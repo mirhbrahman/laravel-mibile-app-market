@@ -22,6 +22,13 @@ class SubCategoriesController extends Controller
         ->with('categories', Category::pluck('name','id')->all());
     }
 
+    public function getSubCategory(Request $request)
+    {
+        $category_id = $request->id;
+        $sub_categories = SubCategory::where('category_id',$category_id)->get()->toArray();
+        return $sub_categories;
+    }
+
     /**
      * Show the form for creating a new resource.
      *

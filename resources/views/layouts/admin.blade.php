@@ -63,6 +63,18 @@
 
 
 
+                <li class="xn-openable">
+                    <a href="#"><span class="fa fa-cogs"></span> <span class="xn-text">Product</span></a>
+                    <ul>
+                        <li><a href="ui-widgets.html"><span class="fa fa-heart"></span> Products</a></li>
+                        <li><a href="{{route('product.create')}}"><span class="fa fa-plus"></span> Add Product</a></li>
+                        <li><a href="ui-buttons.html"><span class="fa fa-square-o"></span> Buttons</a></li>
+                        <li><a href="ui-panels.html"><span class="fa fa-pencil-square-o"></span> Panels</a></li>
+
+                    </ul>
+                </li>
+
+
                 <li class="xn-title">Components</li>
                 <li class="xn-openable">
                     <a href="#"><span class="fa fa-cogs"></span> <span class="xn-text">UI Kits</span></a>
