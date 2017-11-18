@@ -4,7 +4,7 @@
 
     var main = function(){
         $('#upload').on('submit',function(e){
-            e.preventDefault();
+            //e.preventDefault();
             $(this).ajaxSubmit({
                 beforeSend:function(){
                     $('#prog').show();

@@ -27,5 +27,6 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
     Route::resource('sub-category','Admin\SubCategoriesController');
     Route::resource('product','Admin\ProductsController');
     Route::post('sub-category-auto','Admin\SubCategoriesController@getSubCategory')->name('getSubCategory');
+    Route::get('image-upload/{id}','Admin\ProductsController@uploadImage')->name('product.upload.image');
     Route::post('file-upload','Admin\ProductsController@upload')->name('upload');
 });

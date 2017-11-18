@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\SubCategory;
 use App\Models\Product;
+use App\Models\Photo;
 use Session;
 use Image;
 
@@ -48,8 +49,6 @@ class ProductsController extends Controller
             $rand = substr(md5(microtime()),rand(0,26),60);
             $newName = time().$rand.'.'.$image->getClientOriginalExtension();
 
-            // $path = public_path('upload/product/icon');
-            // $image->move($path,$newName);
 
             $path = public_path('upload/product/icon/'.$newName);
             //......resize image
@@ -76,22 +75,33 @@ class ProductsController extends Controller
 
 
         $input['slug'] = str_slug($request->title);
-
-        if (Product::create($input)) {
+        $product = '';
+        if ($product = Product::create($input)) {
             Session::flash('success','Product addded successfull');
         }
 
-        return redirect()->route('product.create');
+        //return $product;
+        return redirect()->route('product.upload.image',$product->id);
+    }
+
+    public function uploadImage($id)
+    {
+        return view('admin.product.upload')
+                ->with('product_id', $id);
     }
 
     public function upload(Request $request)
     {
+        $input = $request->all();
         if ($image = $request->file('file')) {
-            $name = rand(111,999). time().'.'.$image->getClientOriginalExtension();
-            $image->move('haha',$name);
+            $name = $request->product_id.rand(111,999). time().'.'.$image->getClientOriginalExtension();
+            $image->move('public/upload/product/image/',$name);
+            $input['image'] = $name;
         }
 
+        if (Photo::create($input)) {
 
+        }
         return redirect()->route('product.create');
     }
 

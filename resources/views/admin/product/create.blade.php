@@ -41,12 +41,6 @@
                 {{Form::close()}}
 
 
-
-                {{-- <form action="{{route('upload')}}" method="post" enctype="multipart/form-data" class="dropzone" id="my-awesome-dropzone">
-                    {{csrf_field()}}
-                    </form> --}}
-
-
             </div>
         </div>
 
@@ -57,6 +51,6 @@
 @section('scripts')
     @include('includes.autoJs')
     @include('includes.summernoteJs')
-    {{-- @include('includes.fileUploadJs')
-    <script type="text/javascript" src="{{asset('js/dropzone.js')}}"></script> --}}
+    {{--@include('includes.fileUploadJs')
+     <script type="text/javascript" src="{{asset('js/dropzone.js')}}"></script> --}}
 @endsection
