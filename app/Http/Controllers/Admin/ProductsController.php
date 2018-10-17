@@ -20,7 +20,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-
+        return view('admin.product.index')
+                ->with('products', Product::all());
     }
 
     /**
@@ -71,6 +72,7 @@ class ProductsController extends Controller
             $file->move('public/upload/product/file/',$newName);
 
             $input['file'] = $newName;
+            $input['file_size'] = $file->getClientSize();
         }
 
 
@@ -113,7 +115,8 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        return view('admin.product.show',compact('product'));
     }
 
     /**

@@ -25,6 +25,7 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->string('icon');
             $table->string('file');
+            $table->string('file_size');
 
             $table->timestamps();
         });
